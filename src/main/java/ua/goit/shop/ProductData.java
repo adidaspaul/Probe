@@ -39,6 +39,11 @@ public class ProductData {
         ALL_PRODUCTS.put(product.getProductId(), product);
     }
 
+    public static Product getProductById(String productId){
+        Objects.requireNonNull(productId);
+        return ALL_PRODUCTS.getOrDefault(productId, null);
+    }
+
     public static void removeProductById(String productId){
         Objects.requireNonNull(productId);
         ALL_PRODUCTS.remove(productId);
