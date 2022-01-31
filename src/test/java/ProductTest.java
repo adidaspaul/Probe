@@ -44,6 +44,7 @@ public class ProductTest {
 
     @Test
     void getPriceByQty(){
+        // what the reason to use assertThat with isEqualTo instead of assertEquals?
         assertThat(testP.getPriceByQty(1L)).isEqualTo(6d, offset(MARGIN));
         assertThat(testP.getPriceByQty(2L)).isEqualTo(12d, offset(MARGIN));
         assertThat(testP.getPriceByQty(5L)).isEqualTo(30d, offset(MARGIN));
@@ -76,6 +77,7 @@ public class ProductTest {
     void testHash(){
         Product productReplica = testP;
         Product copyOfProduct = new Product("H", 6d, 14d,15);
+        //what do we test here? We do the same in both cases
         assertThat(testP.hashCode()).isEqualTo(testP.hashCode());
         assertThat(testP.hashCode()).isEqualTo(productReplica.hashCode());
         assertThat(testP.hashCode()).isEqualTo(copyOfProduct.hashCode());
